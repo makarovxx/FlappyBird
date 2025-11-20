@@ -1,20 +1,22 @@
-using UnityEngine;
+using BirdComponents;
 using Zenject;
 
 namespace Infrastructure
 {
     public class BootstrapBird : MonoInstaller
     {
-        public Transform StartPoint;
-        public GameObject BirdPrefab;
+        public Bird BirdComponent;
+        public BirdMover Mover;
+
         public override void InstallBindings()
         {
-            BirdMover birdMover =  Container.InstantiatePrefabForComponent<BirdMover>(BirdPrefab, StartPoint.position, Quaternion.identity,null);
-            
-            Container.
-                Bind<BirdMover>().
-                FromInstance(birdMover)
-                .AsSingle();
+            BindBirdAndMover();
+        }
+
+        private void BindBirdAndMover()
+        {
+            Container.Bind<Bird>().FromComponentInHierarchy(BirdComponent).AsSingle();
+            Container.Bind<BirdMover>().FromComponentInHierarchy(Mover).AsSingle();
         }
     }
 }
