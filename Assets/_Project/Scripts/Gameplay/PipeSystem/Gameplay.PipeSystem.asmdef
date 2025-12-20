@@ -1,0 +1,16 @@
+{
+    "name": "Gameplay.PipeSystem",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5fac25b539823404d910ec980371e0e2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
