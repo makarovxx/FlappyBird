@@ -1,4 +1,3 @@
-using BirdComponents;
 using UnityEngine;
 using Zenject;
 

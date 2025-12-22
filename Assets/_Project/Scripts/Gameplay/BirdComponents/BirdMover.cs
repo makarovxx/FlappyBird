@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BirdComponents
+namespace _Project.Scripts.Gameplay.BirdComponents
 {
    [RequireComponent(typeof(Rigidbody2D),typeof(SpriteRenderer))]
    public class BirdMover : MonoBehaviour

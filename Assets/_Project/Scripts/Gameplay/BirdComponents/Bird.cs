@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace BirdComponents
+namespace _Project.Scripts.Gameplay.BirdComponents
 {
     [RequireComponent(typeof(BirdMover))]
     public class Bird : MonoBehaviour

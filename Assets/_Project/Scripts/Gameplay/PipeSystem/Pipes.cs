@@ -1,9 +1,13 @@
+using _Project.Scripts.Plugins.Factory;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.PipeSystem
 {
-    public class Pipes : MonoBehaviour, IRebuildable
+    public class Pipes : MonoBehaviour, ICreatable, IRebuildable
     {
-        public Transform Transform => transform;
+        public void Rebuild(Vector3 position)
+        {
+            transform.position = position;
+        }
     }
 }

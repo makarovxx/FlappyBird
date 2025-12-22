@@ -9,7 +9,10 @@ namespace _Project.Scripts.Gameplay.PipeSystem
         private IPool<Pipes> _pool;
         private IRebuilder _rebuilder;
         private Camera _camera;
-        
+        private float _elapsedTime;
+        private readonly float _secondsBetweenActivate = 2;
+        private readonly Vector3 _offsetDisable = new(0, 0.5f);
+
         [Inject]
         public void Construct(IPool<Pipes> pool, IRebuilder rebuilder, Camera camera)
         {
@@ -20,29 +23,23 @@ namespace _Project.Scripts.Gameplay.PipeSystem
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                TryActivatePipes();
-            }
+            _elapsedTime += Time.deltaTime;
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (_elapsedTime >= _secondsBetweenActivate)
             {
-                DisableObjectsAboardScreen();
+                if (_pool.TryGetObject(out Pipes pipes))
+                {
+                    _elapsedTime = 0;
+                    _rebuilder.Rebuild(pipes);
+                    DisableObjectsAboardScreen();
+                }
             }
         }
 
         private void DisableObjectsAboardScreen()
         {
-            Vector3 disablePoint = _camera.ViewportToWorldPoint(new Vector3(0, 0.5f));
+            Vector3 disablePoint = _camera.ViewportToWorldPoint(_offsetDisable);
             _pool.PushObjectsByCondition(obj => obj.transform.position.x < disablePoint.x);
-        }
-
-        
-        private void TryActivatePipes()
-        {
-            var pipes = _pool.GetObject();
-            if(pipes)
-                _rebuilder.Rebuild(pipes);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace _Project.Scripts.Plugins.ObjectPool
 {
     public interface IPool<T>
     {
-        T GetObject();
+        bool TryGetObject(out T obj);
         void PushObject(T obj);
 
         void PushObjectsByCondition(Func<T, bool> condition);

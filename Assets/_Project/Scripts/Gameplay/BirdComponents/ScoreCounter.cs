@@ -1,8 +1,8 @@
-namespace BirdComponents
+namespace _Project.Scripts.Gameplay.BirdComponents
 {
     public class ScoreCounter
     {
-        public int Score { get; private set; } = 0;
+        public int Score { get; private set; }
 
         private void IncreaseScore() => Score++;
         

@@ -4,6 +4,6 @@ namespace _Project.Scripts.Gameplay.PipeSystem
 {
     public interface IRebuildable
     {
-        Transform Transform { get; }
+        void Rebuild(Vector3 position);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.PipeSystem
 {
-    public class PipesObjectPool : MainObjectPool<Pipes>
+    public class PipesObjectPool : ObjectPool<Pipes>
     {
         public PipesObjectPool(ICreator<Pipes> creator, int maxInstances, Transform container) : base(creator, maxInstances, container)
         {

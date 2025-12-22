@@ -1,3 +1,17 @@
 fileFormatVersion: 2
 guid: 2a9a5bf8113a4531a47bc4c9e638f1c9
-timeCreated: 1756398187
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pipesPrefab: {instanceID: 0}
+  - _rebuildPoint: {instanceID: 0}
+  - pipesContainer: {instanceID: 0}
+  - mainCamera: {instanceID: 0}
+  - BirdComponent: {instanceID: 0}
+  - Mover: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

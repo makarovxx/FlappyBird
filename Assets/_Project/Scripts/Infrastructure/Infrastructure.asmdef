@@ -6,7 +6,8 @@
         "GUID:d932a37236304614aa016b3c70708820",
         "GUID:efbc96cb6f43441498a0cb4899e269c0",
         "Plugins.Factory",
-        "GUID:3093c5a8350f415488831dc509821cdd"
+        "GUID:3093c5a8350f415488831dc509821cdd",
+        "InstallerConfigs"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -8,7 +8,7 @@ namespace _Project.Scripts.Gameplay.PipeSystem
         private readonly int _minY;
         private readonly int _maxY;
         
-        public PipesRebuilder(Transform rebuildPoint, int minY = -2, int maxY = 2)
+        public PipesRebuilder(Transform rebuildPoint, int minY, int maxY)
         {
             _rebuildPoint = rebuildPoint;
             _minY = minY;
@@ -20,7 +20,7 @@ namespace _Project.Scripts.Gameplay.PipeSystem
             float randomY = Random.Range(_minY, _maxY);
             Vector3 spawnPos = _rebuildPoint.position;
 
-            rebuildable.Transform.position = new Vector3(spawnPos.x, randomY, spawnPos.z);
+            rebuildable.Rebuild(new Vector3(spawnPos.x, randomY, spawnPos.z));
         }
     }
 }

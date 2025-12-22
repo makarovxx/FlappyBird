@@ -6,17 +6,17 @@ using UnityEngine;
 
 namespace _Project.Scripts.Plugins.ObjectPool
 {
-    public abstract class MainObjectPool<T> : IPool<T> where T : MonoBehaviour
+    public abstract class ObjectPool<T> : IPool<T> where T : MonoBehaviour, ICreatable
     {
         private readonly int _maxInstances;
         private readonly ICreator<T> _creator;
-        public List<T> PooledObjects { get; }
+        private readonly List<T> _pooledObjects;
 
-        protected MainObjectPool(ICreator<T> creator, int maxInstances, Transform container)
+        protected ObjectPool(ICreator<T> creator, int maxInstances, Transform container)
         {
             _creator = creator;
             _maxInstances = maxInstances;
-            PooledObjects = new List<T>();
+            _pooledObjects = new List<T>();
 
             AllocatePool(container);
         }
@@ -29,15 +29,15 @@ namespace _Project.Scripts.Plugins.ObjectPool
                 if(container) obj.transform.SetParent(container);
                 
                 PushObject(obj);
-                PooledObjects.Add(obj);
+                _pooledObjects.Add(obj);
             }
         }
 
         public void PushObjectsByCondition(Func<T, bool> condition)
         {
-            for (int i = 0; i < PooledObjects.Count; i++)
+            for (int i = 0; i < _pooledObjects.Count; i++)
             {
-                T obj = PooledObjects[i];
+                T obj = _pooledObjects[i];
 
                 if (!obj.gameObject.activeSelf)
                     continue;
@@ -47,13 +47,11 @@ namespace _Project.Scripts.Plugins.ObjectPool
             }
         }
 
-        public T GetObject()
+        public bool TryGetObject(out T obj)
         {
-            T obj = PooledObjects.FirstOrDefault(item => item.gameObject.activeSelf == false);
-            if (obj)
-            {
+            obj = _pooledObjects.FirstOrDefault(item => item.gameObject.activeSelf == false);
+            if(obj)
                 obj.gameObject.SetActive(true);
-            }
             
             return obj;
         }
