@@ -1,4 +1,3 @@
-using System;
 using _Project.Scripts.Plugins.ObjectPool;
 using UnityEngine;
 using Zenject;
@@ -7,14 +6,16 @@ namespace _Project.Scripts.Gameplay.PipeSystem
 {
     public class PipesController : MonoBehaviour
     {
-        private MainObjectPool<Pipes> _pool;
+        private IPool<Pipes> _pool;
+        private IRebuilder _rebuilder;
         private Camera _camera;
         
         [Inject]
-        public void Construct(MainObjectPool<Pipes> pool, Camera camera)
+        public void Construct(IPool<Pipes> pool, IRebuilder rebuilder, Camera camera)
         {
             _pool = pool;
             _camera = camera;
+            _rebuilder = rebuilder;
         }
 
         private void Update()
@@ -39,7 +40,9 @@ namespace _Project.Scripts.Gameplay.PipeSystem
         
         private void TryActivatePipes()
         {
-            _pool.GetObject();
+            var pipes = _pool.GetObject();
+            if(pipes)
+                _rebuilder.Rebuild(pipes);
         }
     }
 }

@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipesPrefab: {fileID: -6442265634844217684, guid: 83b0e79b95aa40a4e8fd0f1d38a1924c, type: 3}
+  _rebuildPoint: {fileID: 138280223}
   pipesContainer: {fileID: 1651029000}
   mainCamera: {fileID: 519420031}
   maxPipesCount: 5

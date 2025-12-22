@@ -6,13 +6,13 @@ using UnityEngine;
 
 namespace _Project.Scripts.Plugins.ObjectPool
 {
-    public class MainObjectPool<T> where T : MonoBehaviour, IPoolable
+    public abstract class MainObjectPool<T> : IPool<T> where T : MonoBehaviour
     {
         private readonly int _maxInstances;
         private readonly ICreator<T> _creator;
         public List<T> PooledObjects { get; }
 
-        public MainObjectPool(ICreator<T> creator, int maxInstances, Transform container)
+        protected MainObjectPool(ICreator<T> creator, int maxInstances, Transform container)
         {
             _creator = creator;
             _maxInstances = maxInstances;
@@ -32,7 +32,7 @@ namespace _Project.Scripts.Plugins.ObjectPool
                 PooledObjects.Add(obj);
             }
         }
-        
+
         public void PushObjectsByCondition(Func<T, bool> condition)
         {
             for (int i = 0; i < PooledObjects.Count; i++)
@@ -46,19 +46,18 @@ namespace _Project.Scripts.Plugins.ObjectPool
                     PushObject(obj);
             }
         }
-        
+
         public T GetObject()
         {
             T obj = PooledObjects.FirstOrDefault(item => item.gameObject.activeSelf == false);
             if (obj)
             {
-                obj.OnTakenFromPool();
                 obj.gameObject.SetActive(true);
             }
             
             return obj;
         }
 
-        private void PushObject(T obj) => obj.gameObject.SetActive(false);
+        public void PushObject(T obj) => obj.gameObject.SetActive(false);
     }
 }

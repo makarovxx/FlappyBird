@@ -1,9 +1,12 @@
+using System;
+
 namespace _Project.Scripts.Plugins.ObjectPool
 {
     public interface IPool<T>
     {
-        abstract T GetObject();
-        abstract void PushObject(T obj);
-        abstract bool TryGetObject(out T obj);
+        T GetObject();
+        void PushObject(T obj);
+
+        void PushObjectsByCondition(Func<T, bool> condition);
     }
 }
