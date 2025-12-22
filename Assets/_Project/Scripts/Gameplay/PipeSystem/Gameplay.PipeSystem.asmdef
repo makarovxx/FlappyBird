@@ -2,7 +2,9 @@
     "name": "Gameplay.PipeSystem",
     "rootNamespace": "",
     "references": [
-        "GUID:5fac25b539823404d910ec980371e0e2"
+        "GUID:5fac25b539823404d910ec980371e0e2",
+        "Plugins.ObjectPool",
+        "Plugins.Factory"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

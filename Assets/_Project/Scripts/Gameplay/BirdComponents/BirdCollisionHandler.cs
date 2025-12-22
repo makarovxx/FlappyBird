@@ -2,16 +2,24 @@ using BirdComponents;
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(CircleCollider2D), typeof(Bird))]
-public class BirdCollisionHandler : MonoBehaviour
+namespace _Project.Scripts.Gameplay.BirdComponents
 {
-    [SerializeField] private Bird _bird;
+    [RequireComponent(typeof(CircleCollider2D), typeof(Bird))]
+    public class BirdCollisionHandler : MonoBehaviour
+    {
+        private Bird _bird;
 
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.TryGetComponent(out ScoreZone _))
-    //         _bird.IncreaseScore();
-    //     else
-    //         _bird.Die();
-    // }
+        [Inject]
+        public void Construct(Bird bird)
+        {
+            _bird = bird;
+        }
+        // private void OnTriggerEnter2D(Collider2D other)
+        // {
+        //     if (other.TryGetComponent(out ScoreZone _))
+        //         _bird.IncreaseScore();
+        //     else
+        //         _bird.Die();
+        // }
+    }
 }
