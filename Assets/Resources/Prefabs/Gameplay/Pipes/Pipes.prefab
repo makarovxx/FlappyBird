@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4712211610656440915}
   - component: {fileID: 8713646457999770274}
   - component: {fileID: 827645705910701252}
+  - component: {fileID: 2649155840934619973}
   m_Layer: 0
   m_Name: ScoreZone
   m_TagString: Untagged
@@ -105,6 +106,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2649155840934619973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583428991813801504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f3b965f45b47bd922ed9373b5427ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5894007554145833602
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +261,7 @@ GameObject:
   m_Layer: 0
   m_Name: Pipes
   m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

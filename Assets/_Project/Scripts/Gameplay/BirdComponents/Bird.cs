@@ -1,28 +1,35 @@
 using System;
+using _Project.Scripts.Signals;
 using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.BirdComponents
 {
-    [RequireComponent(typeof(BirdMover))]
-    public class Bird : MonoBehaviour
+    public class Bird : IInitializable, IDisposable
     {
         private BirdMover _birdMover;
-        private int _score;
+        private SignalBus _signalBus;
 
-        public event Action GameOver;
-    
         [Inject]
-        private void Construct(BirdMover birdMover) => _birdMover = birdMover;
-
-        public void ResetPlayer()
+        public void Construct(SignalBus signalBus, BirdMover birdMover)
         {
-            _score = 0;
-            _birdMover.ResetBird();
+            _signalBus = signalBus;
+            _birdMover = birdMover;
         }
-    
-        public void IncreaseScore() => _score++;
-    
-        public void Die() => GameOver?.Invoke();
+
+        public void Initialize()
+        {
+            _signalBus.Subscribe<DiedBirdSignal>(BirdDied);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.Unsubscribe<DiedBirdSignal>(BirdDied);
+        }
+
+        private void BirdDied()
+        {
+            Debug.Log("Died");
+        }
     }
 }

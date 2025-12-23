@@ -1,11 +1,36 @@
+using System;
+using _Project.Scripts.Signals;
+using UnityEngine;
+using Zenject;
+
 namespace _Project.Scripts.Gameplay.BirdComponents
 {
-    public class ScoreCounter
+    public class ScoreCounter : IInitializable, IDisposable
     {
-        public int Score { get; private set; }
+        private readonly SignalBus _signalBus;
+        private int _score;
 
-        private void IncreaseScore() => Score++;
+        public ScoreCounter(SignalBus signalBus)
+        {
+            _signalBus = signalBus;
+        }
         
-        private void ResetScore() => Score = 0;
+        public void Initialize()
+        {
+            _signalBus.Subscribe<ScoreChangedSignal>(IncreaseScore);
+        }
+
+        public void Dispose()
+        {
+            _signalBus.Unsubscribe<ScoreChangedSignal>(IncreaseScore);
+        }
+
+        private void IncreaseScore()
+        {
+            Debug.Log($"Score: {_score}");
+            _score++;
+        }
+
+        private void ResetScore() => _score = 0;
     }
 }

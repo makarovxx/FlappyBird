@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9a5bf8113a4531a47bc4c9e638f1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BirdComponent: {fileID: 407225088}
   Mover: {fileID: 407225089}
 --- !u!114 &42332398
 MonoBehaviour:
@@ -407,17 +406,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!114 &407225088 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4075871944084980500, guid: 77979448ae463ca42b2cb3369040d066, type: 3}
-  m_PrefabInstance: {fileID: 654306807}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a54e3e239936d094cab7f800c7e72a7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &407225089 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6775916586860456989, guid: 77979448ae463ca42b2cb3369040d066, type: 3}
@@ -677,10 +665,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
-    - target: {fileID: 2925835665045382979, guid: 77979448ae463ca42b2cb3369040d066, type: 3}
-      propertyPath: _bird
-      value: 
-      objectReference: {fileID: 407225088}
     - target: {fileID: 6465299281746393283, guid: 77979448ae463ca42b2cb3369040d066, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
