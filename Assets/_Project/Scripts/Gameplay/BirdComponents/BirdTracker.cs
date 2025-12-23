@@ -5,12 +5,12 @@ namespace _Project.Scripts.Gameplay.BirdComponents
 {
     public class BirdTracker : MonoBehaviour
     {
-        [SerializeField] private float _offsetX;
-        private BirdMover _birdMover;
+        private const float OffsetX = -1;
+        private BirdController _birdMover;
 
         [Inject]
-        public void Construct(BirdMover birdMover) => _birdMover = birdMover;
+        public void Construct(BirdController birdMover) => _birdMover = birdMover;
 
-        private void Update() => transform.position = new Vector3(_birdMover.transform.position.x - _offsetX, transform.position.y, transform.position.z);
+        private void Update() => transform.position = new Vector3(_birdMover.transform.position.x - OffsetX, transform.position.y, transform.position.z);
     }
 }

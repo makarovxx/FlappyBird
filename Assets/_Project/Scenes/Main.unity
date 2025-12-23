@@ -132,8 +132,8 @@ GameObject:
   m_Component:
   - component: {fileID: 42332399}
   - component: {fileID: 42332398}
-  - component: {fileID: 42332397}
   - component: {fileID: 42332400}
+  - component: {fileID: 42332401}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -141,19 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &42332397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42332396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9a5bf8113a4531a47bc4c9e638f1c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mover: {fileID: 407225089}
 --- !u!114 &42332398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +156,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 42332400}
-  - {fileID: 42332397}
+  - {fileID: 42332401}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -217,11 +204,34 @@ MonoBehaviour:
   pipePipesFactoryConfig: {fileID: 11400000, guid: 24fe8c1e48d6dd040a4bbcc5432b33bf, type: 2}
   _objectPoolConfig:
     Container: {fileID: 1651029000}
-    MaxInstances: 5
+    MaxInstances: 3
   _pipesRebuilderConfig:
     MinYPosition: -2
     MaxYPosition: 2
     RebuildPoint: {fileID: 138280223}
+--- !u!114 &42332401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42332396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c62ec8b05d245cc9581bda932ddef83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _config:
+    Velocity: {x: 2, y: 0}
+    Rigidbody: {fileID: 1478320604}
+    Transform: {fileID: 1478320607}
+    JumpForce: 250
+    JumpDirection: {x: 0, y: 1}
+    ForceMode: 0
+    RotationSpeed: 1
+    MaxRotation: {x: 0, y: 0, z: 0.57357645, w: 0.81915206}
+    MinRotation: {x: 0, y: 0, z: -0.57357645, w: 0.81915206}
+    JumpKey: 32
 --- !u!1 &138280222
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,17 +416,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!114 &407225089 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6775916586860456989, guid: 77979448ae463ca42b2cb3369040d066, type: 3}
-  m_PrefabInstance: {fileID: 654306807}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1250e841bebb4340abc0125bea4bc61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +430,7 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: '*CAMERA*'
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -570,7 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a250d0a4cc937343bb6fa6b187258bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offsetX: -1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +826,16 @@ Transform:
   - {fileID: 42332399}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1478320604 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4658822443135299638, guid: 77979448ae463ca42b2cb3369040d066, type: 3}
+  m_PrefabInstance: {fileID: 654306807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1478320607 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6465299281746393283, guid: 77979448ae463ca42b2cb3369040d066, type: 3}
+  m_PrefabInstance: {fileID: 654306807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1511111731
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1651029000}
   m_Layer: 0
-  m_Name: PipeContainer
+  m_Name: PipesContainer
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

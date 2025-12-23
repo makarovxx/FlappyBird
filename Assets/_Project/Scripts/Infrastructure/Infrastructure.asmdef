@@ -8,7 +8,8 @@
         "Plugins.Factory",
         "GUID:3093c5a8350f415488831dc509821cdd",
         "InstallerConfigs",
-        "Signals"
+        "Signals",
+        "Gameplay.Physics"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

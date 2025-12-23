@@ -13,8 +13,8 @@ namespace _Project.Scripts.Gameplay.BirdComponents
       [SerializeField] private float _minRotationZ;
    
       private Rigidbody2D _rb;
-      private Quaternion _maxRotation;
-      private Quaternion _minRotation;
+      [SerializeField] private Quaternion _maxRotation;
+      [SerializeField] private Quaternion _minRotation;
 
       private void Start()
       {
