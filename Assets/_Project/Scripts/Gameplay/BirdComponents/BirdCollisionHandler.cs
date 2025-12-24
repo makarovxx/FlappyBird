@@ -5,7 +5,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.BirdComponents
 {
-    [RequireComponent(typeof(CircleCollider2D))]
+    [RequireComponent(typeof(PolygonCollider2D))]
     public class BirdCollisionHandler : MonoBehaviour
     {
         private SignalBus _signalBus;
@@ -17,12 +17,12 @@ namespace _Project.Scripts.Gameplay.BirdComponents
         {
             if (other.TryGetComponent(out ITouchable _))
             {
-                Debug.Log("Score Changed");
+                // Debug.Log("Score Changed");
                 _signalBus.Fire(new ScoreChangedSignal());
             }
             else
             {
-                Debug.Log("Died");
+                // Debug.Log("Died");
                 _signalBus.Fire(new GameOverSignal());
             }
         }

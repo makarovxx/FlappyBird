@@ -17,9 +17,14 @@ namespace _Project.Scripts.Gameplay.Physics
             _forceMode = forceMode;
         }
 
-        public void ApplyForce()
+        void IForceImplementable.ApplyForce()
         {
             _rigidbody.AddForce(_force * _direction, _forceMode);
+        }
+
+        void IForceImplementable.RevertForce()
+        {
+            _rigidbody.AddForce(Vector2.zero);
         }
     }
 }

@@ -1,26 +1,31 @@
+using System;
 using _Project.Scripts.Gameplay.Physics;
+using _Project.Scripts.Signals;
 using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.BirdComponents
 {
-    [RequireComponent(typeof(Rigidbody2D))]
-    public class BirdController : MonoBehaviour
+    public sealed class BirdController : ITickable, IInitializable, IDisposable
     {
-        private IRigidBodyMovable _movement;
-        private IForceImplementable _jump;
-        private IRotatable _rotation;
-        private KeyCode _jumpKey;
-
-        [Inject]
-        public void Construct(IRigidBodyMovable movement, IForceImplementable jump, IRotatable rotation)
+        private readonly IRigidBodyMovable _movement;
+        private readonly IForceImplementable _jump;
+        private readonly IRotatable _rotation;
+        private readonly SignalBus _signalBus;
+        
+        public BirdController(IRigidBodyMovable movement, IForceImplementable jump, IRotatable rotation, SignalBus signalBus)
         {
             _movement = movement;
             _jump = jump;
             _rotation = rotation;
+            _signalBus = signalBus;
         }
+        
+        void IInitializable.Initialize() => _signalBus.Subscribe<GameRestartSignal>(Reset);
 
-        private void Update()
+        void IDisposable.Dispose() => _signalBus.Unsubscribe<GameRestartSignal>(Reset);
+
+        void ITickable.Tick()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -30,6 +35,13 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             }
 
             _rotation.RotateSmoothly(Time.deltaTime);
+        }
+        
+        private void Reset()
+        {
+            _movement.Stop();
+            _rotation.ResetRotation();
+            _jump.RevertForce();
         }
     }
 }

@@ -9,7 +9,8 @@ namespace _Project.Scripts.InstallerConfigs
     {
         public Vector2 Velocity;
         public Rigidbody2D Rigidbody;
-        public Transform Transform;
+        [FormerlySerializedAs("Transform")] public Transform Body;
+        public Transform OriginalTransform;
         
         public float JumpForce;
         public Vector2 JumpDirection;
@@ -18,7 +19,5 @@ namespace _Project.Scripts.InstallerConfigs
         public float RotationSpeed;
         public Quaternion MaxRotation;
         public Quaternion MinRotation;
-
-        public KeyCode JumpKey;
     }
 }

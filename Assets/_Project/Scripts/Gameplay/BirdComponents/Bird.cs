@@ -5,15 +5,13 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.BirdComponents
 {
-    public class Bird : IInitializable, IDisposable
+    public class Bird : MonoBehaviour, IInitializable, IDisposable
     {
-        private BirdMover _birdMover;
-        private SignalBus _signalBus;
+        private readonly SignalBus _signalBus;
         
-        public Bird(SignalBus signalBus, BirdMover birdMover)
+        public Bird(SignalBus signalBus)
         {
             _signalBus = signalBus;
-            _birdMover = birdMover;
         }
 
         public void Initialize()

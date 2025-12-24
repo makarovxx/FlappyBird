@@ -1,5 +1,6 @@
 using _Project.Scripts.Gameplay.BirdComponents;
 using _Project.Scripts.Gameplay.Physics;
+using _Project.Scripts.Gameplay.TimeController;
 using _Project.Scripts.InstallerConfigs;
 using _Project.Scripts.Signals;
 using UnityEngine;
@@ -14,22 +15,34 @@ namespace _Project.Scripts.Infrastructure
         public override void InstallBindings()
         {
             SignalBusInstaller.Install(Container);
-            
-            BindBirdAndMover();
+
+            // BindBirdTracker();
+            BindCollisionHandler();
             BindBirdController();
-            
-            Container.DeclareSignal<ScoreChangedSignal>();
+            BindBird();
+
+            Container.DeclareSignal<GamePauseSignal>();
+            Container.DeclareSignal<GameResumeSignal>();
+            Container.DeclareSignal<GameRestartSignal>();
+            Container.DeclareSignal<GameStartSignal>();
             Container.DeclareSignal<GameOverSignal>();
-            Container.Bind<ScoreCounter>().AsSingle();
+            Container.DeclareSignal<ScoreChangedSignal>();
+            
+            Container.BindInterfacesAndSelfTo<ScoreCounter>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TimeController>().AsSingle();
         }
 
-        private void BindBirdAndMover()
+        private void BindCollisionHandler()
         {
-            Container.Bind<Bird>().AsSingle();
-
             Container.Bind<BirdCollisionHandler>()
                 .FromComponentInHierarchy()
                 .AsSingle();
+        }
+
+        private void BindBird()
+        {
+            Container.Bind<Bird>().FromComponentInHierarchy().AsSingle();
+            // Container.BindInterfacesAndSelfTo<Bird>().AsSingle();
         }
 
         private void BindBirdController()
@@ -37,7 +50,7 @@ namespace _Project.Scripts.Infrastructure
             Container.Bind<IRigidBodyMovable>()
                 .To<Movement>()
                 .AsSingle()
-                .WithArguments(_config.Rigidbody, _config.Velocity);
+                .WithArguments(_config.OriginalTransform,_config.Body,_config.Rigidbody, _config.Velocity);
 
             Container.Bind<IForceImplementable>()
                 .To<ForceHandler>()
@@ -53,14 +66,12 @@ namespace _Project.Scripts.Infrastructure
                 .AsSingle()
                 .WithArguments(
                     _config.RotationSpeed,
-                    _config.Transform,
+                    _config.Body,
                     _config.MinRotation,
                     _config.MaxRotation
                 );
 
-            Container.Bind<BirdController>()
-                .FromComponentInHierarchy()
-                .AsSingle();
+            Container.BindInterfacesAndSelfTo<BirdController>().AsCached();
         }
     }
 }

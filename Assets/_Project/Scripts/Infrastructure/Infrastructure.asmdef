@@ -9,7 +9,8 @@
         "GUID:3093c5a8350f415488831dc509821cdd",
         "InstallerConfigs",
         "Signals",
-        "Gameplay.Physics"
+        "Gameplay.Physics",
+        "GUID:ab420bb4806a44c46ad223a916ad50d8"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
