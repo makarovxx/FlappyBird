@@ -9,9 +9,8 @@ namespace _Project.Scripts.Gameplay.BirdComponents
     {
         private BirdMover _birdMover;
         private SignalBus _signalBus;
-
-        [Inject]
-        public void Construct(SignalBus signalBus, BirdMover birdMover)
+        
+        public Bird(SignalBus signalBus, BirdMover birdMover)
         {
             _signalBus = signalBus;
             _birdMover = birdMover;
@@ -19,12 +18,12 @@ namespace _Project.Scripts.Gameplay.BirdComponents
 
         public void Initialize()
         {
-            _signalBus.Subscribe<DiedBirdSignal>(BirdDied);
+            _signalBus.Subscribe<GameOverSignal>(BirdDied);
         }
 
         public void Dispose()
         {
-            _signalBus.Unsubscribe<DiedBirdSignal>(BirdDied);
+            _signalBus.Unsubscribe<GameOverSignal>(BirdDied);
         }
 
         private void BirdDied()

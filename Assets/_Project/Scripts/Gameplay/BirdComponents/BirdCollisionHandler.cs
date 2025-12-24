@@ -15,7 +15,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-              if (other.TryGetComponent(out ITouchable _))
+            if (other.TryGetComponent(out ITouchable _))
             {
                 Debug.Log("Score Changed");
                 _signalBus.Fire(new ScoreChangedSignal());
@@ -23,7 +23,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             else
             {
                 Debug.Log("Died");
-                _signalBus.Fire(new DiedBirdSignal());
+                _signalBus.Fire(new GameOverSignal());
             }
         }
     }

@@ -14,10 +14,12 @@ namespace _Project.Scripts.Infrastructure
         public override void InstallBindings()
         {
             SignalBusInstaller.Install(Container);
+            
             BindBirdAndMover();
-
+            BindBirdController();
+            
             Container.DeclareSignal<ScoreChangedSignal>();
-            Container.DeclareSignal<DiedBirdSignal>();
+            Container.DeclareSignal<GameOverSignal>();
             Container.Bind<ScoreCounter>().AsSingle();
         }
 
@@ -28,18 +30,15 @@ namespace _Project.Scripts.Infrastructure
             Container.Bind<BirdCollisionHandler>()
                 .FromComponentInHierarchy()
                 .AsSingle();
-            TestBind();
         }
 
-        private void TestBind()
+        private void BindBirdController()
         {
-            // 3. Movement
             Container.Bind<IRigidBodyMovable>()
                 .To<Movement>()
                 .AsSingle()
                 .WithArguments(_config.Rigidbody, _config.Velocity);
 
-            // 4. Jump
             Container.Bind<IForceImplementable>()
                 .To<ForceHandler>()
                 .AsSingle()
@@ -49,7 +48,6 @@ namespace _Project.Scripts.Infrastructure
                     _config.ForceMode
                 );
 
-            // 5. Rotation
             Container.Bind<IRotatable>()
                 .To<ClampedRotationHandler>()
                 .AsSingle()
@@ -60,7 +58,6 @@ namespace _Project.Scripts.Infrastructure
                     _config.MaxRotation
                 );
 
-            // 6. Controller
             Container.Bind<BirdController>()
                 .FromComponentInHierarchy()
                 .AsSingle();
