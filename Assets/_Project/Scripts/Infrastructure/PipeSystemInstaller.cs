@@ -51,7 +51,7 @@ namespace _Project.Scripts.Infrastructure
         
         private void BindCamera()
         {
-            Container.Bind<Camera>().FromInstance(Camera.main).AsSingle();
+            Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
         }
 
     }
