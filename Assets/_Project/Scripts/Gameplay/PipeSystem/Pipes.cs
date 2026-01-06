@@ -5,9 +5,9 @@ namespace _Project.Scripts.Gameplay.PipeSystem
 {
     public class Pipes : MonoBehaviour, ICreatable, IRebuildable
     {
-        public void Rebuild(Vector3 position)
+        public void Rebuild(Vector3 newPosition)
         {
-            transform.position = position;
+            transform.position = newPosition;
         }
     }
 }

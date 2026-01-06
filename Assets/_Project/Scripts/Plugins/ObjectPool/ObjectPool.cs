@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Plugins.ObjectPool
 {
-    public abstract class ObjectPool<T> : IPool<T> where T : MonoBehaviour, ICreatable
+    public class ObjectPool<T> : IPool<T> where T : MonoBehaviour, ICreatable
     {
         private readonly int _maxInstances;
         private readonly ICreator<T> _creator;

@@ -1,3 +1,4 @@
+using _Project.Scripts.Gameplay;
 using _Project.Scripts.Gameplay.BirdComponents;
 using _Project.Scripts.Gameplay.Physics;
 using _Project.Scripts.Gameplay.TimeController;
@@ -71,6 +72,24 @@ namespace _Project.Scripts.Infrastructure
                     _config.MaxRotation
                 );
 
+            // Strategies
+            Container.Bind<IInputStrategy>()
+                .To<InputDesktopStrategy>()
+                .AsSingle()
+                .WithArguments(KeyCode.Space);
+
+            Container.Bind<IInputStrategy>()
+                .To<InputMobileStrategy>()
+                .AsSingle();
+
+            // Detector
+            Container.BindInterfacesAndSelfTo<InputDetector>()
+                .AsSingle();
+
+            // Manager
+            Container.Bind<InputManager>()
+                .AsSingle();
+            
             Container.BindInterfacesAndSelfTo<BirdController>().AsCached();
         }
     }

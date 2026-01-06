@@ -355,54 +355,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 703369339043770664, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125137840932681009, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125137840932681009, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125137840932681009, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 334.185
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125137840932681009, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125137840932681009, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -150
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109656248161355317, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109656248161355317, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109656248161355317, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 145.815
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109656248161355317, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109656248161355317, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 480
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109656248161355317, guid: a21918e8d630a204ca83fdb04a8aca20, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -150
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1101,10 +1053,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 8194293192611984138, guid: 3296d3a8317d5e547a075fccfeb549bc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1425,10 +1373,6 @@ PrefabInstance:
     - target: {fileID: 4753817535441918401, guid: 321ac00335af53d45bddec30edd33626, type: 3}
       propertyPath: m_Name
       value: PausePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753817535441918401, guid: 321ac00335af53d45bddec30edd33626, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
