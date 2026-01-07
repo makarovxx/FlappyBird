@@ -1,5 +1,5 @@
 using System;
-using _Project.Scripts.GameManage;
+using _Project.Scripts.Core;
 using _Project.Scripts.Signals;
 using _Project.Scripts.UI;
 using UnityEngine;
@@ -8,10 +8,12 @@ using Zenject;
 
 public sealed class GameOverPanel : Panel, IInitializable, IDisposable
 {
-    private SignalBus _signalBus;
-    private ApplicationExiter _exiter;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
+    
+    private SignalBus _signalBus;
+    private ApplicationExiter _exiter;
+    
     [Inject]
     public void Construct(SignalBus signalBus, ApplicationExiter exiter)
     {

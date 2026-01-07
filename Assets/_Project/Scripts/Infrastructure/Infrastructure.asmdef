@@ -12,7 +12,9 @@
         "Gameplay.Physics",
         "GUID:ab420bb4806a44c46ad223a916ad50d8",
         "UI",
-        "GameManager"
+        "GameManager",
+        "Core",
+        "Infrastructure.Configs"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

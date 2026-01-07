@@ -1,5 +1,6 @@
 using System;
-using _Project.Scripts.Gameplay.Physics;
+using _Project.Scripts.Core.Input;
+using _Project.Scripts.Physics;
 using _Project.Scripts.Signals;
 using UnityEngine;
 using Zenject;
@@ -11,7 +12,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
         private readonly IRigidBodyMovable _movement;
         private readonly IForceImplementable _jump;
         private readonly IRotatable _rotation;
-        // private readonly InputManager _inputManager;
+        private readonly InputManager _inputManager;
         private readonly SignalBus _signalBus;
         private bool _isActive;
         
@@ -21,7 +22,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             _jump = jump;
             _rotation = rotation;
             _signalBus = signalBus;
-            // _inputManager = inputManager;
+            _inputManager = inputManager;
         }
         
         void IInitializable.Initialize()
@@ -45,7 +46,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             if(!_isActive)
                 return;
             
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (_inputManager.HandleInput())
             {
                 // костыль, если закоментить нижнюю строчку, то рб ведет себя по другому, сила прыжка применяется по другому
                 _movement.ApplyMoveSpeed();

@@ -1,5 +1,5 @@
 using System;
-using _Project.Scripts.GameManage;
+using _Project.Scripts.Core;
 using _Project.Scripts.Signals;
 using UnityEngine;
 using UnityEngine.UI;

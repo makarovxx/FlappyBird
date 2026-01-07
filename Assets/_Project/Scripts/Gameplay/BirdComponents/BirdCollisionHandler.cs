@@ -1,4 +1,4 @@
-using _Project.Scripts.Gameplay.ScoreSystem;
+using _Project.Scripts.Gameplay.Score;
 using _Project.Scripts.Signals;
 using UnityEngine;
 using Zenject;
@@ -16,15 +16,9 @@ namespace _Project.Scripts.Gameplay.BirdComponents
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent(out ITouchable _))
-            {
-                // Debug.Log("Score Changed");
                 _signalBus.Fire<ScoreChangedSignal>();
-            }
             else
-            {
-                // Debug.Log("Died");
                 _signalBus.Fire<GameOverSignal>();
-            }
         }
     }
 }
