@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace _Project.Scripts.Core
 {
     public sealed class ApplicationExiter

@@ -31,6 +31,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             _signalBus.Subscribe<GameRestartSignal>(Reset);
             _signalBus.Subscribe<GameResumeSignal>(Activate);
             _signalBus.Subscribe<GameOverSignal>(Deactivate);
+            _signalBus.Subscribe<GamePauseSignal>(Deactivate);
         }
 
         void IDisposable.Dispose()
@@ -39,6 +40,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             _signalBus.Unsubscribe<GameRestartSignal>(Reset);
             _signalBus.Unsubscribe<GameResumeSignal>(Activate);
             _signalBus.Unsubscribe<GameOverSignal>(Deactivate);
+            _signalBus.Unsubscribe<GamePauseSignal>(Deactivate);
         }
 
         void ITickable.Tick()
