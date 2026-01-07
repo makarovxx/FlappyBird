@@ -47,6 +47,8 @@ namespace _Project.Scripts.Plugins.ObjectPool
             }
         }
 
+        public void PushAllObjects() => _pooledObjects.ForEach(PushObject);
+
         public bool TryGetObject(out T obj)
         {
             obj = _pooledObjects.FirstOrDefault(item => item.gameObject.activeSelf == false);

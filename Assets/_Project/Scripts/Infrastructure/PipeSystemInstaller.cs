@@ -19,6 +19,12 @@ namespace _Project.Scripts.Infrastructure
             BindFactoryAndObjectPool();
             BindRebuilder();
             BindCamera();
+            BindPipesController();
+        }
+
+        private void BindPipesController()
+        {
+            Container.BindInterfacesAndSelfTo<PipesController>().FromComponentsInHierarchy().AsSingle();
         }
         
         private void BindPipesPrefab()

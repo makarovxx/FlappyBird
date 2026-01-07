@@ -18,12 +18,12 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             if (other.TryGetComponent(out ITouchable _))
             {
                 // Debug.Log("Score Changed");
-                _signalBus.Fire(new ScoreChangedSignal());
+                _signalBus.Fire<ScoreChangedSignal>();
             }
             else
             {
                 // Debug.Log("Died");
-                _signalBus.Fire(new GameOverSignal());
+                _signalBus.Fire<GameOverSignal>();
             }
         }
     }

@@ -1,3 +1,4 @@
+using _Project.Scripts.GameManage;
 using Zenject;
 
 namespace _Project.Scripts.Infrastructure
@@ -6,7 +7,6 @@ namespace _Project.Scripts.Infrastructure
     {
         public override void InstallBindings()
         {
-            
         }
     }
 }

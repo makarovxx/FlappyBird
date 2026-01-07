@@ -12,6 +12,7 @@ namespace _Project.Scripts.InstallerConfigs
         [FormerlySerializedAs("Transform")] public Transform Body;
         public Transform OriginalTransform;
         
+        public KeyCode JumpKey;
         public float JumpForce;
         public Vector2 JumpDirection;
         public ForceMode2D ForceMode;

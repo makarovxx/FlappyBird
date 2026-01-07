@@ -14,13 +14,13 @@ namespace _Project.Scripts.Gameplay.BirdComponents
         {
             _signalBus = signalBus;
         }
-        
-        public void Initialize()
+
+        void IInitializable.Initialize()
         {
             _signalBus.Subscribe<ScoreChangedSignal>(IncreaseScore);
         }
 
-        public void Dispose()
+        void IDisposable.Dispose()
         {
             _signalBus.Unsubscribe<ScoreChangedSignal>(IncreaseScore);
         }

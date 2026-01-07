@@ -3,31 +3,20 @@ using _Project.Scripts.Gameplay.BirdComponents;
 using _Project.Scripts.Gameplay.Physics;
 using _Project.Scripts.Gameplay.TimeController;
 using _Project.Scripts.InstallerConfigs;
-using _Project.Scripts.Signals;
 using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Infrastructure
 {
-    public class BirdInstaller : MonoInstaller
+    public sealed class BirdInstaller : MonoInstaller
     {
         [SerializeField] private BirdConfig _config;
 
         public override void InstallBindings()
         {
-            SignalBusInstaller.Install(Container);
-
-            // BindBirdTracker();
             BindCollisionHandler();
             BindBirdController();
             BindBird();
-
-            Container.DeclareSignal<GamePauseSignal>();
-            Container.DeclareSignal<GameResumeSignal>();
-            Container.DeclareSignal<GameRestartSignal>();
-            Container.DeclareSignal<GameStartSignal>();
-            Container.DeclareSignal<GameOverSignal>();
-            Container.DeclareSignal<ScoreChangedSignal>();
             
             Container.BindInterfacesAndSelfTo<ScoreCounter>().AsSingle();
             Container.BindInterfacesAndSelfTo<TimeController>().AsSingle();
@@ -43,7 +32,6 @@ namespace _Project.Scripts.Infrastructure
         private void BindBird()
         {
             Container.Bind<Bird>().FromComponentInHierarchy().AsSingle();
-            // Container.BindInterfacesAndSelfTo<Bird>().AsSingle();
         }
 
         private void BindBirdController()
@@ -71,26 +59,23 @@ namespace _Project.Scripts.Infrastructure
                     _config.MinRotation,
                     _config.MaxRotation
                 );
-
-            // Strategies
+            
             Container.Bind<IInputStrategy>()
                 .To<InputDesktopStrategy>()
                 .AsSingle()
-                .WithArguments(KeyCode.Space);
+                .WithArguments(_config.JumpKey);
 
             Container.Bind<IInputStrategy>()
                 .To<InputMobileStrategy>()
                 .AsSingle();
-
-            // Detector
+            
             Container.BindInterfacesAndSelfTo<InputDetector>()
                 .AsSingle();
-
-            // Manager
+            
             Container.Bind<InputManager>()
                 .AsSingle();
             
-            Container.BindInterfacesAndSelfTo<BirdController>().AsCached();
+            Container.BindInterfacesAndSelfTo<BirdController>().AsSingle();
         }
     }
 }

@@ -5,18 +5,23 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.TimeController
 {
-    public sealed class TimeController :  IInitializable, IDisposable
+    public sealed class TimeController : IInitializable, IDisposable
     {
-        private const int OffTime = 0;
-        private const int DefaultTime = 1;
+        private enum TimeState
+        {
+            Off = 0,
+            Default = 1,
+        }
+        
         private readonly SignalBus _signalBus;
 
         public TimeController(SignalBus signalBus)
         {
             _signalBus = signalBus;
+            TimeSetOff();
         }
 
-        public void Initialize()
+        void IInitializable.Initialize()
         {
             _signalBus.Subscribe<GamePauseSignal>(TimeSetOff);
             _signalBus.Subscribe<GameResumeSignal>(TimeSetDefault);
@@ -25,7 +30,7 @@ namespace _Project.Scripts.Gameplay.TimeController
             _signalBus.Subscribe<GameOverSignal>(TimeSetOff);
         }
 
-        public void Dispose()
+        void IDisposable.Dispose()
         {
             _signalBus.Unsubscribe<GamePauseSignal>(TimeSetOff);
             _signalBus.Unsubscribe<GameResumeSignal>(TimeSetDefault);
@@ -34,8 +39,10 @@ namespace _Project.Scripts.Gameplay.TimeController
             _signalBus.Unsubscribe<GameOverSignal>(TimeSetOff);
         }
 
-        private void TimeSetOff() => Time.timeScale = OffTime;
+        private void TimeSetOff() => SetTime(TimeState.Off);
 
-        private void TimeSetDefault() => Time.timeScale = DefaultTime;
+        private void TimeSetDefault() => SetTime(TimeState.Default);
+
+        private void SetTime(TimeState state) => Time.timeScale = (int)state;
     }
 }

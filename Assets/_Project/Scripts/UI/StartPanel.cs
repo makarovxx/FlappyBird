@@ -1,44 +1,44 @@
 using System;
+using _Project.Scripts.GameManage;
 using _Project.Scripts.Signals;
+using _Project.Scripts.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class StartPanel : MonoBehaviour, IInitializable, IDisposable
+public sealed class StartPanel : Panel, IInitializable, IDisposable
 {
-    private SignalBus _signalBus;
-    [SerializeField] private GameObject _panel;
     [SerializeField] private Button _startButton;
+    [SerializeField] private Button _exitButton;
+    
+    private SignalBus _signalBus;
+    private ApplicationExiter _exiter;
 
     [Inject]
-    public void Construct(SignalBus signalBus)
+    public void Construct(SignalBus signalBus, ApplicationExiter exiter)
     {
         _signalBus = signalBus;
+        _exiter = exiter;
     }
 
-    void IInitializable.Initialize()
+    public void Initialize()
     {
         _startButton.onClick.AddListener(OnStartButtonClicked);
+        _exitButton.onClick.AddListener(OnExitButtonClicked);
     }
 
-    void IDisposable.Dispose()
+    public void Dispose()
     {
         _startButton.onClick.RemoveListener(OnStartButtonClicked);
-    }
-
-    private void Show()
-    {
-        _panel.SetActive(true);
-    }
-
-    private void Hide()
-    {
-        _panel.SetActive(false);
+        _exitButton.onClick.RemoveListener(OnExitButtonClicked);
     }
 
     private void OnStartButtonClicked()
     {
+        Debug.Log("Start");
         _signalBus.Fire<GameStartSignal>();
         Hide();
     }
+
+    private void OnExitButtonClicked() => _exiter.Exit();
 }

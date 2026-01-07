@@ -8,5 +8,7 @@ namespace _Project.Scripts.Plugins.ObjectPool
         void PushObject(T obj);
 
         void PushObjectsByCondition(Func<T, bool> condition);
+        
+        void PushAllObjects();
     }
 }

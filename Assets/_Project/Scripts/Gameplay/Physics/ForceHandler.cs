@@ -19,10 +19,11 @@ namespace _Project.Scripts.Gameplay.Physics
 
         void IForceImplementable.ApplyForce()
         {
+            RevertForce();
             _rigidbody.AddForce(_force * _direction, _forceMode);
         }
 
-        void IForceImplementable.RevertForce()
+        public void RevertForce()
         {
             _rigidbody.AddForce(Vector2.zero);
         }

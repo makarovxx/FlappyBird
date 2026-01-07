@@ -11,7 +11,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
         private readonly IRigidBodyMovable _movement;
         private readonly IForceImplementable _jump;
         private readonly IRotatable _rotation;
-        private readonly InputManager _inputManager;
+        // private readonly InputManager _inputManager;
         private readonly SignalBus _signalBus;
         private bool _isActive;
         
@@ -21,7 +21,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             _jump = jump;
             _rotation = rotation;
             _signalBus = signalBus;
-            _inputManager = inputManager;
+            // _inputManager = inputManager;
         }
         
         void IInitializable.Initialize()
@@ -45,8 +45,10 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             if(!_isActive)
                 return;
             
-            if (_inputManager.HandleInput())
+            if (Input.GetKeyDown(KeyCode.Space))
             {
+                // костыль, если закоментить нижнюю строчку, то рб ведет себя по другому, сила прыжка применяется по другому
+                _movement.ApplyMoveSpeed();
                 _jump.ApplyForce();
                 _rotation.RotateInstant();
             }
@@ -69,6 +71,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
         
         private void Reset()
         {
+            _movement.ResetPosition();
             _movement.Stop();
             _rotation.ResetRotation();
             _jump.RevertForce();
