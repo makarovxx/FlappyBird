@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.Configs
 {
@@ -8,6 +7,5 @@ namespace _Project.Scripts.Infrastructure.Configs
     {
         public int MinYPosition;
         public int MaxYPosition;
-        public Transform RebuildPoint;
     }
 }

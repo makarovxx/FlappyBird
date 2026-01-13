@@ -52,7 +52,7 @@ namespace _Project.Scripts.Infrastructure.Installers
             Container.Bind<IRebuilder>()
                 .To<PipesRebuilder>()
                 .AsSingle()
-                .WithArguments(_pipesRebuilderConfig.RebuildPoint,_pipesRebuilderConfig.MinYPosition,_pipesRebuilderConfig.MaxYPosition);
+                .WithArguments(_pipesRebuilderConfig.MinYPosition,_pipesRebuilderConfig.MaxYPosition);
         }
         
         private void BindCamera()
