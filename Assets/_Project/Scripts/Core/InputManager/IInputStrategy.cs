@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Core.Input
+namespace _Project.Scripts.Core.InputManager
 {
     public interface IInputStrategy
     {

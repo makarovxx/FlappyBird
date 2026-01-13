@@ -23,7 +23,7 @@ namespace _Project.Scripts.UI
             _exiter = exiter;
         }
 
-        void IInitializable.Initialize()
+        public void Initialize()
         {
             _signalBus.Subscribe<GamePauseSignal>(Show);
             _signalBus.Subscribe<GameRestartSignal>(Hide);
@@ -34,7 +34,7 @@ namespace _Project.Scripts.UI
             _exitButton.onClick.AddListener(OnExitButtonClicked);
         }
 
-        void IDisposable.Dispose()
+        public void Dispose()
         {
             _signalBus.TryUnsubscribe<GamePauseSignal>(Show);
             _signalBus.TryUnsubscribe<GameRestartSignal>(Hide);

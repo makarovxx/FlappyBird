@@ -17,12 +17,12 @@ namespace _Project.Scripts.Physics
             _forceMode = forceMode;
         }
 
-        void IForceImplementable.ApplyForce()
+        public void ApplyForce()
         {
             _rigidbody.AddForce(_force * _direction, _forceMode);
         }
 
-        void IForceImplementable.RevertForce()
+        public void RevertForce()
         {
             _rigidbody.AddForce(Vector2.zero);
         }

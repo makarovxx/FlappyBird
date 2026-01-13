@@ -25,18 +25,12 @@ namespace _Project.Scripts.Gameplay.PipeSystem
             _rebuilder = rebuilder;
             _signalBus = signalBus;
         }
-        
-        void IInitializable.Initialize()
-        {
-            _signalBus.Subscribe<GameRestartSignal>(ResetPool);
-        }
 
-        void IDisposable.Dispose()
-        {
-            _signalBus.Unsubscribe<GameRestartSignal>(ResetPool);
-        }
-        
-        void ITickable.Tick()
+        public void Initialize() => _signalBus.Subscribe<GameRestartSignal>(ResetPool);
+
+        public void Dispose() => _signalBus.Unsubscribe<GameRestartSignal>(ResetPool);
+
+        public void Tick()
         {
             _elapsedTime += Time.deltaTime;
 

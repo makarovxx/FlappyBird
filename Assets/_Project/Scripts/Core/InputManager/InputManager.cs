@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Core.Input
+namespace _Project.Scripts.Core.InputManager
 {
     public sealed class InputManager 
     {
@@ -9,9 +9,6 @@ namespace _Project.Scripts.Core.Input
             _detector = detector;
         }
     
-        public bool HandleInput()
-        {
-            return _detector.HasInput;
-        }
+        public bool HandleInput() => _detector.HasInput;
     }
 }

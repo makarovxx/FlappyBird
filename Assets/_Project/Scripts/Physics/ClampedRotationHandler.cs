@@ -18,16 +18,10 @@ namespace _Project.Scripts.Physics
             _defaultRotation = Quaternion.identity;
         }
 
-        void IRotatable.RotateInstant() => _transform.rotation = _maxRotation;
+        public void RotateInstant() => _transform.rotation = _maxRotation;
 
-        void IRotatable.RotateSmoothly(float deltaTime)
-        {
-            _transform.rotation = Quaternion.Lerp(_transform.rotation, _minRotation, Speed * deltaTime);
-        }
+        public void RotateSmoothly(float deltaTime) => _transform.rotation = Quaternion.Lerp(_transform.rotation, _minRotation, Speed * deltaTime);
 
-        void IRotatable.ResetRotation()
-        {
-            _transform.rotation = _defaultRotation;
-        }
+        public void ResetRotation() => _transform.rotation = _defaultRotation;
     }
 }

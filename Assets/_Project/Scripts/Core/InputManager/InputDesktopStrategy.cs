@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Core.Input
+namespace _Project.Scripts.Core.InputManager
 {
     public class InputDesktopStrategy : IInputStrategy
     {
@@ -11,9 +11,6 @@ namespace _Project.Scripts.Core.Input
             _keyInput = keyInput;
         }
 
-        bool IInputStrategy.HandleInput()
-        {
-            return UnityEngine.Input.GetKeyDown(_keyInput);
-        }
+        public bool HandleInput() => UnityEngine.Input.GetKeyDown(_keyInput);
     }
 }

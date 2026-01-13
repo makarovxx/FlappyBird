@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Zenject;
 
-namespace _Project.Scripts.Core.Input
+namespace _Project.Scripts.Core.InputManager
 {
     public sealed class InputDetector : ITickable
     {
@@ -13,7 +13,7 @@ namespace _Project.Scripts.Core.Input
             _strategies = new List<IInputStrategy>(strategies);
         }
 
-        void ITickable.Tick()
+        public void Tick()
         {
             HasInput = false;
             
@@ -21,6 +21,7 @@ namespace _Project.Scripts.Core.Input
             {
                 if (!strategy.HandleInput())
                     continue;
+                
                 HasInput = true;
                 return;
             }

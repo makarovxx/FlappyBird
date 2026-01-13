@@ -217,7 +217,8 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8171881390374638719, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 344211226076028514, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
@@ -256,14 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5318daace24b3f45b152b5f184a5056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvasGroup: {fileID: 7348589281609334045}
+  _panel: {fileID: 1189632730455141586}
   _startButton: {fileID: 1499503806359886999}
   _exitButton: {fileID: 6574376533995156745}
---- !u!225 &7348589281609334045 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 8171881390374638719, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
-  m_PrefabInstance: {fileID: 1482587902443972962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5466462017612484215
 PrefabInstance:
   m_ObjectHideFlags: 0

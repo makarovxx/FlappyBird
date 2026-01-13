@@ -131,7 +131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 293113847626204592, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 344211226076028514, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
       propertyPath: m_Pivot.x
@@ -217,7 +217,8 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8171881390374638719, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 344211226076028514, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
@@ -237,11 +238,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8392936291361760668}
   m_SourcePrefab: {fileID: 100100000, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
---- !u!225 &3783569537109854222 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 8171881390374638719, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
-  m_PrefabInstance: {fileID: 5037745268159405169}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4697053097782755859 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 344211226076028514, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
@@ -264,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418395da9fc747a69374358e11a5eb48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvasGroup: {fileID: 3783569537109854222}
+  _panel: {fileID: 4753817535441918401}
   _resumeButton: {fileID: 8630203061889970745}
   _restartButton: {fileID: 7166545062816280685}
   _exitButton: {fileID: 1839714094960564590}

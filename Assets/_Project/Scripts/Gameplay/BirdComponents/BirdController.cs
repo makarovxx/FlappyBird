@@ -1,5 +1,5 @@
 using System;
-using _Project.Scripts.Core.Input;
+using _Project.Scripts.Core.InputManager;
 using _Project.Scripts.Physics;
 using _Project.Scripts.Signals;
 using UnityEngine;
@@ -24,8 +24,8 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             _signalBus = signalBus;
             _inputManager = inputManager;
         }
-        
-        void IInitializable.Initialize()
+
+        public void Initialize()
         {
             _signalBus.Subscribe<GameStartSignal>(Activate);
             _signalBus.Subscribe<GameRestartSignal>(Reset);
@@ -34,7 +34,7 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             _signalBus.Subscribe<GamePauseSignal>(Deactivate);
         }
 
-        void IDisposable.Dispose()
+        public void Dispose()
         {
             _signalBus.Unsubscribe<GameStartSignal>(Activate);
             _signalBus.Unsubscribe<GameRestartSignal>(Reset);
@@ -43,14 +43,13 @@ namespace _Project.Scripts.Gameplay.BirdComponents
             _signalBus.Unsubscribe<GamePauseSignal>(Deactivate);
         }
 
-        void ITickable.Tick()
+        public void Tick()
         {
             if(!_isActive)
                 return;
             
             if (_inputManager.HandleInput())
             {
-                // костыль, если закоментить нижнюю строчку, то рб ведет себя по другому, сила прыжка применяется по другому
                 _movement.ApplyMoveSpeed();
                 _jump.ApplyForce();
                 _rotation.RotateInstant();

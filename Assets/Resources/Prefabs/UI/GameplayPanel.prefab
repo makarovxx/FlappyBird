@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 293113847626204592, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 344211226076028514, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
       propertyPath: m_Pivot.x
@@ -393,11 +393,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3653739297331490098, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653739297331490098, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653739297331490098, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653739297331490098, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8171881390374638719, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8171881390374638719, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 344211226076028514, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
@@ -408,11 +425,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5095759733882963301}
   m_SourcePrefab: {fileID: 100100000, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
---- !u!225 &346488619943076549 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 8171881390374638719, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
-  m_PrefabInstance: {fileID: 8477642859372869306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8169601238686329048 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 344211226076028514, guid: cc2c69256f183f24f94e04e31f2955e6, type: 3}
@@ -435,5 +447,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9503ef5be145aba1cbd4dd6bd3345c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvasGroup: {fileID: 346488619943076549}
+  _panel: {fileID: 8194293192611984138}
   _pauseButton: {fileID: 2263438784910969061}

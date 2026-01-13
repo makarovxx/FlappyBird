@@ -1,5 +1,5 @@
 {
-    "name": "Core.Input",
+    "name": "Core.InputManager",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [],

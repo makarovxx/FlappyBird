@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.PipeSystem
 {
-    public class PipesRebuilder : RebuilderBase
+    public sealed class PipesRebuilder : RebuilderBase
     {
         private readonly Transform _rebuildPoint;
         private readonly int _minY;

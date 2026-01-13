@@ -17,20 +17,17 @@ namespace _Project.Scripts.Gameplay.Score
             _model = model;
         }
 
-        void IInitializable.Initialize()
+        public void Initialize()
         {
             _model.OnScoreChanged += UpdateVisualScore;
             UpdateVisualScore(_model.Score);
         }
 
-        void IDisposable.Dispose()
+        public void Dispose()
         {
             _model.OnScoreChanged -= UpdateVisualScore;
         }
 
-        private void UpdateVisualScore(int currentScore)
-        {
-            _scoreText.text = currentScore.ToString();
-        }
+        private void UpdateVisualScore(int currentScore) => _scoreText.text = currentScore.ToString();
     }
 }

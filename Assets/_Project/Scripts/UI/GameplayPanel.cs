@@ -18,7 +18,7 @@ namespace _Project.Scripts.UI
             _signalBus = signalBus;
         }
 
-        void IInitializable.Initialize()
+        public void Initialize()
         {
             _signalBus.Subscribe<GameStartSignal>(Show);
             _signalBus.Subscribe<GamePauseSignal>(Hide);
@@ -29,7 +29,7 @@ namespace _Project.Scripts.UI
             _pauseButton.onClick.AddListener(OnPauseButtonClicked);
         }
 
-        void IDisposable.Dispose()
+        public void Dispose()
         {
             _signalBus.TryUnsubscribe<GameStartSignal>(Show);
             _signalBus.TryUnsubscribe<GamePauseSignal>(Hide);

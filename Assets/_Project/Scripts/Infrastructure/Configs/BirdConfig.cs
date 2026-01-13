@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Project.Scripts.Infrastructure.Configs
 {
@@ -9,7 +8,7 @@ namespace _Project.Scripts.Infrastructure.Configs
     {
         public Vector2 Velocity;
         public Rigidbody2D Rigidbody;
-        [FormerlySerializedAs("Transform")] public Transform Body;
+        public Transform Body;
         public Transform OriginalTransform;
         
         public KeyCode JumpKey;

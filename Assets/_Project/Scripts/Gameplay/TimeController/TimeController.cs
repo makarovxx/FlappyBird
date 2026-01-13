@@ -12,7 +12,7 @@ namespace _Project.Scripts.Gameplay.TimeController
             Off = 0,
             Default = 1,
         }
-        
+
         private readonly SignalBus _signalBus;
 
         public TimeController(SignalBus signalBus)
@@ -21,7 +21,7 @@ namespace _Project.Scripts.Gameplay.TimeController
             TimeSetOff();
         }
 
-        void IInitializable.Initialize()
+        public void Initialize()
         {
             _signalBus.Subscribe<GamePauseSignal>(TimeSetOff);
             _signalBus.Subscribe<GameResumeSignal>(TimeSetDefault);
@@ -30,7 +30,7 @@ namespace _Project.Scripts.Gameplay.TimeController
             _signalBus.Subscribe<GameOverSignal>(TimeSetOff);
         }
 
-        void IDisposable.Dispose()
+        public void Dispose()
         {
             _signalBus.Unsubscribe<GamePauseSignal>(TimeSetOff);
             _signalBus.Unsubscribe<GameResumeSignal>(TimeSetDefault);

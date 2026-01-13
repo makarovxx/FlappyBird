@@ -1,6 +1,6 @@
 namespace _Project.Scripts.Signals
 {
-    public class GameRestartSignal
+    public sealed class GameRestartSignal
     {
         
     }

@@ -9,7 +9,7 @@ namespace _Project.Scripts.Infrastructure.Installers
 {
     public sealed class PipeSystemInstaller : MonoInstaller
     {
-        [SerializeField, Space] private PipesFactoryConfig pipePipesFactoryConfig;
+        [SerializeField, Space] private PipesFactoryConfig _pipePipesFactoryConfig;
         [SerializeField, Space] private ObjectPoolConfig _objectPoolConfig;
         [SerializeField, Space] private PipesRebuilderConfig _pipesRebuilderConfig;
 
@@ -29,7 +29,7 @@ namespace _Project.Scripts.Infrastructure.Installers
         
         private void BindPipesPrefab()
         {
-            Container.Bind<Pipes>().FromInstance(pipePipesFactoryConfig.Prefab).AsSingle();
+            Container.Bind<Pipes>().FromInstance(_pipePipesFactoryConfig.Prefab).AsSingle();
         }
 
         private void BindFactoryAndObjectPool()

@@ -6,7 +6,7 @@ using Zenject;
 namespace _Project.Scripts.Gameplay.BirdComponents
 {
     [RequireComponent(typeof(PolygonCollider2D))]
-    public class BirdCollisionHandler : MonoBehaviour
+    public sealed class BirdCollisionHandler : MonoBehaviour
     {
         private SignalBus _signalBus;
 

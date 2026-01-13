@@ -16,13 +16,13 @@ namespace _Project.Scripts.Gameplay.Score
             _signalBus = signalBus;
         }
 
-        void IInitializable.Initialize()
+        public void Initialize()
         {
             _signalBus.Subscribe<ScoreChangedSignal>(IncreaseScore);
             _signalBus.Subscribe<GameRestartSignal>(Reset);
         }
 
-        void IDisposable.Dispose()
+        public void Dispose()
         {
             _signalBus.Unsubscribe<ScoreChangedSignal>(IncreaseScore);
             _signalBus.Unsubscribe<GameRestartSignal>(Reset);

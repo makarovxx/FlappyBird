@@ -3,7 +3,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.BirdComponents
 {
-    public class BirdTracker : MonoBehaviour
+    public sealed class BirdTracker : MonoBehaviour
     {
         private const float OffsetX = -1;
         private Bird _birdMover;

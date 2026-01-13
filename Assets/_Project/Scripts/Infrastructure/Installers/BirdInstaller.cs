@@ -1,7 +1,5 @@
-using _Project.Scripts.Core.Input;
+using _Project.Scripts.Core.InputManager;
 using _Project.Scripts.Gameplay.BirdComponents;
-using _Project.Scripts.Gameplay.Score;
-using _Project.Scripts.Gameplay.TimeController;
 using _Project.Scripts.Infrastructure.Configs;
 using _Project.Scripts.Physics;
 using UnityEngine;
@@ -19,8 +17,6 @@ namespace _Project.Scripts.Infrastructure.Installers
             BindInputManager();
             BindBirdController();
             BindBird();
-            
-            Container.BindInterfacesAndSelfTo<TimeController>().AsSingle();
         }
 
         private void BindCollisionHandler()
